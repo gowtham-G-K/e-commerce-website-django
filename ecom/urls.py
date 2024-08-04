@@ -20,8 +20,6 @@ from . import views
 from django.conf.urls.static import static
 from . import settings
 
-from django.views.static import serve
-from django.conf.url import url
 
 urlpatterns = [
     # path("admin/", include('admin_honeypot.urls', namespace='admin_honeypot')),
@@ -31,6 +29,4 @@ urlpatterns = [
     path("cart/", include('carts.urls')),
     path("accounts/", include('accounts.urls')),
     path("orders/", include('orders.urls')),
-    url(r'^media/(?P<path>.*)&', serve,{'document_root': settings.MEDIA_ROOT}),
-    url(r'^static/(?P<path>.*)&', serve,{'document_root': settings.STATIC_ROOT}),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
