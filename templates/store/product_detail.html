@@ -47,6 +47,23 @@
   .rating-star i{
     color: #ffb503 !important;
   }
+
+  ul.thumb {
+    margin: 0 auto;
+    padding: 0;
+    float: left;
+  }
+
+  ul.thumb li{
+    list-style: none;
+    margin: 10px;
+  }
+
+  ul.thumb li img{
+    width: 80px;
+    height: 80px;
+    border: 1px solid grey;
+  }
 </style>
 
 
@@ -57,11 +74,23 @@
       <div class="row no-gutters">
         <aside class="col-md-6">
           <article class="gallery-wrap">
-            <div class="img-big-wrap">
-              <a href="#"><img src={{single_product.image.url}}></a>
+            <div class="img-big-wrap mainImage">
+              <center><img src={{single_product.image.url}}></center>
             </div> <!-- img-big-wrap.// -->
 
           </article> <!-- gallery-wrap .end// -->
+          <ul class="thumb">
+            <li>
+              <a href="{{single_product.image.url}}" target="mainImage">
+                <img src="{{single_product.image.url}}" alt="Product Image">
+              </a>
+              {% for i in product_gallery %}
+              <a href="{{i.image.url}}" target="mainImage">
+                <img src="{{i.image.url}}" alt="Product Image">
+              </a>
+              {% endfor %}
+            </li>
+          </ul>
         </aside>
         <main class="col-md-6 border-left">
 
@@ -189,7 +218,6 @@
         {% for review in reviews %}
         <article class="box mb-3">
           <div class="icontext w-100">
-            <img src="./images/avatars/avatar1.jpg" class="img-xs icon rounded-circle">
             <div class="text">
               <span class="date text-muted float-md-right">{{review.updated_at}} </span>
               <h6 class="mb-1">{{review.user.full_name}} </h6>
