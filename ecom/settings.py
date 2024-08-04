@@ -27,6 +27,7 @@ SECRET_KEY = "django-insecure-qty$*cp3-d9a+p!k8*pq#tc#t(wfue9+l3x$t68z=i%0v)e7b1
 DEBUG = True
 
 ALLOWED_HOSTS = []
+SECURE_CROSS_ORIGIN_OPENER_POLICY = "same-origin-allow-popups"
 
 
 # Application definition
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     "accounts",
     "store",
     "carts",
+    "orders",
 ]
 
 MIDDLEWARE = [
